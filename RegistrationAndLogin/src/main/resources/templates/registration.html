@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiG5Gz04if5Bv5zj" 
+            crossorigin="anonymous">
+</head>
+<body>
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+           <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed"
+                     data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                     aria-controls="navbar">
+                     <span class="sr-only">Toggle navigation</span> <span 
+                           class="icon-bar"></span> <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                     </button>
+                     <a class="navbar-brand" href="#" th:href="@{/}">Registration
+                     and Login Module</a>
+           </div>
+        </div>
+     </nav>
+     
+     <div class="container">
+         <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                  <!--  success message  -->
+                  
+                  <div th:if="${param.success}">
+                      <div class="aleart aleart-info">you've successfully registred 
+                            to our awesome app!</div>
+                  </div>
+                  
+                  <h1>Registration</h1>
+                  
+                  <form th:action="@{/registration}" method="post" th:object="${user}">
+                     <div class="form-group">
+                         <label class="control-label" for="firstname">
+                         First Name
+                         </label>
+                         <input id="firstname" class="form-controle" th:field="{firstname}" >
+                     </div>
+                     
+                      <div class="form-group">
+                         <label class="control-label" for="lastname">
+                         Last Name
+                         </label>
+                         <input id="firstname" class="form-controle" th:field="{lastname}" >
+                     </div>
+                     
+                      <div class="form-group">
+                         <label class="control-label" for="email">
+                         Email
+                         </label>
+                         <input id="email" class="form-controle" th:field="email" >
+                     </div>
+                     
+                     <div class="form-group">
+                         <label class="control-label" for="password">
+                         Password
+                         </label>
+                         <input id="password" class="form-controle" th:field="password" >
+                     </div>
+                     
+                     <div class="form-group">
+                         <button type="submit" class="btn btn-success">Register</button>
+                         <span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
+                     </div>
+                  </form>
+                  
+              </div>
+         </div>
+     </div>
+
+</body>
+</html>
